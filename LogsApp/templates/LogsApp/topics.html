@@ -1,0 +1,32 @@
+{% extends "LogsApp/base.html" %}
+
+{% block page_header %}
+  <h1 class="text-success" style="font-family: 'Share Tech Mono', monospace;">
+    Cybersecurity Topics
+  </h1>
+{% endblock page_header %}
+
+{% block content %}
+  <div class="container">
+    <p class="text-success" style="font-family: 'Share Tech Mono', monospace;">
+      Topics
+    </p>
+    <ul class="list-group list-group-flush">
+      {% for topic in topics %}
+        <li class="list-group-item bg-dark border-success">
+          <h3 class="text-success" style="font-family: 'Share Tech Mono', monospace;">
+            <a class="text-success text-decoration-none" href="{% url 'LogsApp:topic' topic.id %}" style="text-shadow: 0 0 5px #00FF00;">
+              {{ topic }}
+            </a>
+          </h3>
+        </li>
+      {% empty %}
+        <li class="list-group-item bg-dark border-success">
+          <h3 class="text-success" style="font-family: 'Share Tech Mono', monospace;">
+            No topics have been added yet.
+          </h3>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock content %}

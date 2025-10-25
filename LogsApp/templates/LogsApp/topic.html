@@ -1,0 +1,32 @@
+{% extends 'LogsApp/base.html' %}
+
+{% block page_header %}
+  <h3 class="text-success" style="font-family: 'Share Tech Mono', monospace; ">
+    {{ topic }}
+  </h3>
+{% endblock page_header %}
+
+{% block content %}
+  <div class="container">
+    <p class="text-success" style="font-family: 'Share Tech Mono', monospace;">
+      Topic: {{ topic }}
+    </p>
+    <p class="text-success" style="font-family: 'Share Tech Mono', monospace;">
+      Entries:
+    </p>
+    {% for entry in entries %}
+      <div class="card mb-3 bg-dark border-success">
+        <h4 class="card-header text-success" style="font-family: 'Share Tech Mono', monospace;">
+          {{ entry.date_added|date:'M d, Y H:i' }}
+        </h4>
+        <div class="card-body text-success" style="font-family: 'Share Tech Mono', monospace;">
+          {{ entry.text|linebreaks }}
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-success" style="font-family: 'Share Tech Mono', monospace;">
+        There are no entries for this topic yet.
+      </p>
+    {% endfor %}
+  </div>
+{% endblock content %}

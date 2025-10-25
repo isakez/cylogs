@@ -1,0 +1,16 @@
+{% extends "LogsApp/base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h3 class="text-success" style="font-family: 'Share Tech Mono', monospace; text-shadow: 0 0 10px #00FF00;">
+      Add a New Cybersecurity Topic
+    </h3>
+    <form action="{% url 'LogsApp:new_topic' %}" method="post" class="mt-3">
+      {% csrf_token %}
+      <div class="mb-3">
+        {{ form.as_p }}
+      </div>
+      <button type="submit" name="submit" class="btn btn-outline-success">Add Topic</button>
+    </form>
+  </div>
+{% endblock content %}
