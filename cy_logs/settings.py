@@ -31,9 +31,9 @@ DATABASE_URL = os.getenv('DATABASE_URL')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*','cysaac.dev', 'www.cysaac.dev']
+ALLOWED_HOSTS = ['cysaac.dev', 'www.cysaac.dev']
 
 
 # Application definition
@@ -98,7 +98,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
+        },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
